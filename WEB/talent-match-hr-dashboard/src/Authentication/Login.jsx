@@ -86,13 +86,15 @@ const Login = () => {
         const fixedUrl = data.redirectUrl.replace(/^\/+/, '');
         window.location.href = fixedUrl;
       } else {
-        navigate(data.redirectUrl || "/dashboard");
+        console.log("====data====", data);
+        
+        navigate(data.redirectUrl || "/hr_dashboard");
       }
     } else {
       if (data.role === "HRManager") {
-        navigate("/dashboard");
+        navigate("/hr_dashboard");
       } else {
-        window.location.href = "http://localhost:3001/candidate_dashboard";
+        window.location.href = "/candidate_dashboard";
       }
     }
   } catch (error) {

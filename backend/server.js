@@ -172,7 +172,8 @@ app.post("/api/auth/login", async (req, res) => {
     }
 
     // 4. Determine user role (updated with new HR email)
-    const isHRManager = email.toLowerCase() === "talentmatch.ats@gmail.com";
+    // const isHRManager = email.toLowerCase() === "talentmatch.ats@gmail.com";
+    const isHRManager = email.toLowerCase() === "abhishekkamyani@gmail.com";
     const role = isHRManager ? "HRManager" : "User";
     console.log("Successful login for:", email, "Role:", role);
 
@@ -189,7 +190,7 @@ app.post("/api/auth/login", async (req, res) => {
       message: "Logged in successfully",
       token,
       role,
-      redirectUrl: isHRManager ? '/dashboard' : 'http://localhost:3001/candidate_dashboard',
+      redirectUrl: isHRManager ? '/hr_dashboard' : '/candidate_dashboard',
     });
   } catch (error) {
     console.error("Login error:", error);

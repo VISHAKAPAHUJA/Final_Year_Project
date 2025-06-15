@@ -38,7 +38,7 @@ const upload = multer({
 // Get all applications for authenticated user
 router.get('/', auth, async (req, res) => {
   try {
-    const applications = await Application.find({ user: req.user._id })
+    const applications = await Application.find({ applicant: req.user._id })
       .populate('job', 'title company location salary skills')
       .sort({ appliedDate: -1 });
 
@@ -87,7 +87,7 @@ router.post('/apply', auth, upload.single('cv'), async (req, res) => {
     // Create and save application
     const application = new Application({
       job: req.body.jobId,
-      user: req.user._id, // Associate with user
+      applicant: req.user._id, // Associate with user
       cvPath: req.file.path,
       status: 'submitted',
       appliedDate: new Date()

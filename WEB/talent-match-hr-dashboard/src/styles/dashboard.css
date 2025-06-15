@@ -1,0 +1,175 @@
+/* Dashboard Styles */
+.gradient-bg {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+}
+
+.float-effect {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.float-effect:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateY(0);
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.progress-bar {
+    height: 8px;
+    border-radius: 4px;
+    background-color: #e5e7eb;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #3b82f6 0%, #6366f1 100%);
+    transition: width 1s ease-out;
+    transform-origin: left;
+}
+
+.active-tab {
+    color: #3b82f6;
+    position: relative;
+}
+
+.active-tab::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6 0%, #6366f1 100%);
+    animation: tabUnderline 0.3s ease-out forwards;
+}
+
+@keyframes tabUnderline {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.rotate {
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.wave {
+    position: relative;
+}
+
+.wave::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transform: translateX(-100%);
+    animation: wave 1.5s infinite;
+}
+
+@keyframes wave {
+    100% { transform: translateX(100%); }
+}
+
+/* Additional animations from the JavaScript */
+@keyframes animate-shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    75% { transform: rotate(-15deg); }
+}
+
+.animate-shake {
+    animation: animate-shake 0.5s ease-in-out;
+}
+
+.ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Font Awesome icons alignment fix */
+.fas, .fab, .far, .fal, .fa {
+    vertical-align: middle;
+}
+
+/* Custom styles for navbar glass effect */
+.navbar-glass {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Menu item hover effects */
+.menu-item {
+    transition: all 0.3s ease;
+}
+
+/* Custom animation delays */
+[style*="animation-delay"] {
+    animation-delay: inherit;
+}
+
+/* Progress animation */
+.animate-progress {
+    animation: progressAnimation 1s ease-out forwards;
+}
+
+@keyframes progressAnimation {
+    from { width: 0; }
+    to { width: attr(style width); }
+}

@@ -26,8 +26,6 @@ function App() {
               <Route path="/find-jobs" element={<FindJobs />} />
               <Route path="/applications" element={<TalentMatchApplications />} />
               <Route path="/interviews" element={<TalentMatchInterviews />} />
-              
-
             </Routes>
           </main>
         </div>
